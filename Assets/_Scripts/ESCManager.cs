@@ -23,9 +23,9 @@ namespace udemy
             for(int i = 0; i < numSheep; i++)
             {
                 Entity instance = manager.Instantiate(prefab);
-                Vector3 position = transform.TransformPoint(new float3(UnityEngine.Random.Range(-50, 50),
-                                                                       0,
-                                                                       UnityEngine.Random.Range(-50, 50)));
+                Vector3 position = transform.TransformPoint(new float3(UnityEngine.Random.Range(-50,  50),
+                                                                       UnityEngine.Random.Range(  0, 100),
+                                                                       UnityEngine.Random.Range(-50,  50)));
                 manager.SetComponentData(instance, new Translation { Value = position});
                 manager.SetComponentData(instance, new Rotation { Value = new quaternion(0, 0, 0 ,0) });
 
