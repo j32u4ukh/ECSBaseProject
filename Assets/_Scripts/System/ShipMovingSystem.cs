@@ -7,7 +7,7 @@ using Unity.Transforms;
 using Unity.Jobs;
 using Unity.Collections;
 
-public class MoveSystem : JobComponentSystem
+public class ShipMovingSystem : JobComponentSystem
 {
     protected override JobHandle OnUpdate(JobHandle inputDeps)
     {
@@ -20,7 +20,7 @@ public class MoveSystem : JobComponentSystem
         );
 
         var jobHandle = Entities
-               .WithName("MoveSystem")
+               .WithName("ShipMovingSystem")
                .ForEach((ref Translation position, ref Rotation rotation, ref ShipData ship_data) =>
                {
                    float distance = math.distance(position.Value, wps[ship_data.current_wp]);
