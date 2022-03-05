@@ -14,6 +14,7 @@ public class MoveSystem : JobComponentSystem
         float speed = 1f;
         float rotationalSpeed = 1f;
         float3 targetLocation = GameDataManager.instance.player.position;
+
         var jobHandle = Entities
                .WithName("MoveSystem")
                .ForEach((ref Translation position, ref Rotation rotation, ref TankData tankData) =>
