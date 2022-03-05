@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GameDataManager : MonoBehaviour
 {
     public static GameDataManager instance;
     public Transform player;
+    public Transform[] way_points;
+    public float3[] wps;
 
     void Awake()
     {
@@ -13,5 +16,12 @@ public class GameDataManager : MonoBehaviour
             Destroy(gameObject);
         else
             instance = this;
+
+        wps = new float3[way_points.Length];
+
+        for(int i = 0; i < way_points.Length; i++)
+        {
+            wps[i] = way_points[i].position;
+        }
     }
 }
