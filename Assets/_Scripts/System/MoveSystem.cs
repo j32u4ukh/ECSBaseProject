@@ -21,21 +21,21 @@ public class MoveSystem : JobComponentSystem
 
         var jobHandle = Entities
                .WithName("MoveSystem")
-               .ForEach((ref Translation position, ref Rotation rotation, ref TankData tankData) =>
+               .ForEach((ref Translation position, ref Rotation rotation, ref ShipData ship_data) =>
                {
-                   float3 heading = wps[tankData.current_wp] - position.Value;
-                   heading.y = 0;
+                   float3 heading = wps[ship_data.current_wp] - position.Value;
+                   //heading.y = 0;
                    quaternion targetDirection = quaternion.LookRotation(heading, math.up());
-                   rotation.Value = math.slerp(rotation.Value, targetDirection, deltaTime * tankData.rotationalSpeed);
-                   position.Value += deltaTime * tankData.speed * math.forward(rotation.Value);
+                   rotation.Value = math.slerp(rotation.Value, targetDirection, deltaTime * ship_data.rotationSpeed);
+                   position.Value += deltaTime * ship_data.speed * math.forward(rotation.Value);
 
-                   if (math.distance(position.Value, wps[tankData.current_wp]) < 1)
+                   if (math.distance(position.Value, wps[ship_data.current_wp]) < 3)
                    {
-                       tankData.current_wp++;
+                       ship_data.current_wp++;
 
-                       if(tankData.current_wp >= wps.Length)
+                       if(ship_data.current_wp >= wps.Length)
                        {
-                           tankData.current_wp = 0;
+                           ship_data.current_wp = 0;
                        }
                    }
                })
