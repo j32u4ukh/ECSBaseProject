@@ -4,6 +4,7 @@ using Unity.Mathematics;
 [GenerateAuthoringComponent]
 public struct BulletData : IComponentData
 {
-    public float speed;
-    public float3 destination;
+    public int target;
+    //public float speed;
+    //public float3 destination;
 }

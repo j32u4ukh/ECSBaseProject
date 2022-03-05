@@ -20,7 +20,22 @@ public class BulletMovingSystem : JobComponentSystem
                    position.Value += deltaTime * 100f * math.forward(rotation.Value);
                })
                .Schedule(inputDeps);
-        
+
+        jobHandle.Complete();
+
+        Entities.WithoutBurst().WithStructuralChanges()
+                .ForEach((Entity entity, ref Translation position, ref Rotation rotation, ref BulletData bullet, ref LifeTimeData life) =>
+                {
+                    float3 target = GameDataManager.instance.wps[bullet.target];
+                    float distance = math.distance(position.Value, target);
+
+                    if(distance < 27f)
+                    {
+                        life.value = 0f;
+                    }
+                })
+                .Run();
+
         return jobHandle;
     }
 

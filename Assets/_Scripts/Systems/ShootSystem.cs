@@ -36,6 +36,7 @@ public class ShootSystem : JobComponentSystem
                             manager.SetComponentData(instance, new Translation { Value = position.Value + math.mul(rotation.Value, bullet_spawn_point) });
                             manager.SetComponentData(instance, new Rotation { Value = rotation.Value });
                             manager.SetComponentData(instance, new LifeTimeData { value = 1f });
+                            manager.SetComponentData(instance, new BulletData { target = ship_data.current_wp });
                         }
                     }                    
                 })
