@@ -31,7 +31,6 @@ public class ECSManager : MonoBehaviour
             {
                 // 因上層模型有被縮放，導致下層的相對位置需要透過 TransformPoint 來取得世界座標
                 bullet_spawn_points.Add(part.TransformPoint(part.position));
-                Debug.Log($"position: {part.position}, TransformPoint: {part.TransformPoint(part.position)}");
             }
         }
 

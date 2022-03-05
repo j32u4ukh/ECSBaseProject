@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Unity.Collections;
 using Unity.Entities;
+using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
-using Unity.Jobs;
-using Unity.Collections;
 
 public class ShootSystem : JobComponentSystem
 {
@@ -28,6 +25,7 @@ public class ShootSystem : JobComponentSystem
 
                         manager.SetComponentData(instance, new Translation { Value = position.Value + math.mul(rotation.Value, bullet_spawn_point) });
                         manager.SetComponentData(instance, new Rotation { Value = rotation.Value });
+                        manager.SetComponentData(instance, new LifeTimeData { value = 1f });
                     }
                 })
                 .Run();
