@@ -10,6 +10,7 @@ public class ECSManager : MonoBehaviour
     EntityManager manager;
     public GameObject ship_prefab;
     public GameObject bullet_prefab;
+    public GameObject explosion_prefab;
     const int numTanks = 100;
 
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class ECSManager : MonoBehaviour
         var settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, null);
         var ship_entity = GameObjectConversionUtility.ConvertGameObjectHierarchy(ship_prefab, settings);
         var bullet_entity = GameObjectConversionUtility.ConvertGameObjectHierarchy(bullet_prefab, settings);
+        var explosion_entity = GameObjectConversionUtility.ConvertGameObjectHierarchy(explosion_prefab, settings);
         float3[] wps = GameDataManager.instance.wps;
 
         //List<GameObject> bullet_spawn_points = new List<GameObject>();
@@ -74,7 +76,8 @@ public class ECSManager : MonoBehaviour
                 speed = UnityEngine.Random.Range(5.0f, 20.0f),
                 rotationSpeed = UnityEngine.Random.Range(3.0f, 5.0f),
                 current_wp = closest_wp,
-                bullet_entity = bullet_entity
+                bullet_entity = bullet_entity,
+                explosion_entity = explosion_entity
             });
         }
 

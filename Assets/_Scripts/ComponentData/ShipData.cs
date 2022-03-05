@@ -9,4 +9,5 @@ public struct ShipData : IComponentData
     public bool approach;
 
     public Entity bullet_entity;
+    public Entity explosion_entity;
 }

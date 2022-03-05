@@ -32,6 +32,14 @@ public class BulletMovingSystem : JobComponentSystem
                     if(distance < 27f)
                     {
                         life.value = 0f;
+
+                        if (UnityEngine.Random.Range(0, 1000) < 50)
+                        {
+                            Entity instance = EntityManager.Instantiate(bullet.explosion_entity);
+                            EntityManager.SetComponentData(instance, new Translation { Value = position.Value});
+                            EntityManager.SetComponentData(instance, new Rotation { Value = rotation.Value});
+                            EntityManager.SetComponentData(instance, new LifeTimeData { value = 0.5f });
+                        }
                     }
                 })
                 .Run();
