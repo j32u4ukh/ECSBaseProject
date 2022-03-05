@@ -21,6 +21,30 @@ public class ECSManager : MonoBehaviour
         var bullet_entity = GameObjectConversionUtility.ConvertGameObjectHierarchy(bullet_prefab, settings);
         float3[] wps = GameDataManager.instance.wps;
 
+        //List<GameObject> bullet_spawn_points = new List<GameObject>();
+        List<float3> bullet_spawn_points = new List<float3>();
+        Transform ship_transform = ship_prefab.transform;
+
+        foreach(Transform part in ship_transform)
+        {
+            if (part.tag.Equals("BulletSpawnPoint"))
+            {
+                // 因上層模型有被縮放，導致下層的相對位置需要透過 TransformPoint 來取得世界座標
+                bullet_spawn_points.Add(part.TransformPoint(part.position));
+                Debug.Log($"position: {part.position}, TransformPoint: {part.TransformPoint(part.position)}");
+            }
+        }
+
+        GameDataManager.instance.gun_locations = bullet_spawn_points.ToArray();
+
+        //int n_gun = bullet_spawn_points.Count;
+        //GameDataManager.instance.gun_locations = new float3[n_gun];
+
+        //for(int i = 0; i < n_gun; i++)
+        //{
+        //    GameDataManager.instance.gun_locations[i] = bullet_spawn_points[i].transform.position;
+        //}
+
         for (int i = 0; i < numTanks; i++)
         {
             var ship = manager.Instantiate(ship_entity);

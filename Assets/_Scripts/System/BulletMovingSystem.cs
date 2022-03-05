@@ -18,9 +18,6 @@ public class BulletMovingSystem : JobComponentSystem
                .ForEach((ref Translation position, ref Rotation rotation, ref BulletData bullet_data) =>
                {
                    position.Value += deltaTime * 100f * math.forward(rotation.Value);
-
-                   //quaternion targetDirection = quaternion.LookRotation(bullet_data.destination, math.up());
-                   //position.Value += deltaTime * bullet_data.speed * math.forward(rotation.Value);
                })
                .Schedule(inputDeps);
         

@@ -6,9 +6,9 @@ using UnityEngine;
 public class GameDataManager : MonoBehaviour
 {
     public static GameDataManager instance;
-    public Transform player;
     public Transform[] way_points;
     public float3[] wps;
+    public float3[] gun_locations;
 
     void Awake()
     {
