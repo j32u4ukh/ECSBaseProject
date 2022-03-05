@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   rotationSpeed: 0
-  currentWP: 0
+  current_wp: 0
+  approach: 0
+  bullet_entity: {fileID: 0}
 --- !u!1001 &2306892993124180447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,17 +59,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 2020c79efce914b61a1182ac8ee88117,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.66961
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2020c79efce914b61a1182ac8ee88117,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.975
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2020c79efce914b61a1182ac8ee88117,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.77679
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2020c79efce914b61a1182ac8ee88117,
         type: 3}

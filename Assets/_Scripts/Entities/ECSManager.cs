@@ -10,7 +10,7 @@ public class ECSManager : MonoBehaviour
     EntityManager manager;
     public GameObject ship_prefab;
     public GameObject bullet_prefab;
-    const int numTanks = 500;
+    const int numTanks = 100;
 
     // Start is called before the first frame update
     void Start()
