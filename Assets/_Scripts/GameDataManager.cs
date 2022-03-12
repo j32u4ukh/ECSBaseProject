@@ -1,27 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
+using Unity.Entities;
 
-public class GameDataManager : MonoBehaviour
+public static class GameDataManager
 {
-    public static GameDataManager instance;
-    public Transform[] way_points;
-    public float3[] wps;
-    public float3[] gun_locations;
+    public static Vector3 player_psotion;
 
-    void Awake()
-    {
-        if (instance != null && instance != this)
-            Destroy(gameObject);
-        else
-            instance = this;
+    public static float strength1;
+    public static float scale1;
+    public static float strength2;
+    public static float scale2;
+    public static float strength3;
+    public static float scale3;
 
-        wps = new float3[way_points.Length];
+    public static Entity sand_entity;
+    public static Entity dirt_entity;
+    public static Entity grass_entity;
+    public static Entity rock_entity;
+    public static Entity snow_entity;
 
-        for(int i = 0; i < way_points.Length; i++)
-        {
-            wps[i] = way_points[i].position;
-        }
-    }
+    public static float sand_altitude;
+    public static float dirt_altitude;
+    public static float grass_altitude;
+    public static float rock_altitude;
+    public static float snow_altitude;
+
+    public static bool changed_flag = false;
 }
