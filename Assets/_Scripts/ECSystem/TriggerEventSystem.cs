@@ -65,11 +65,12 @@ struct TriggerEventJob : ITriggerEventsJob
             return;
         }
 
-        //var trigger_entity = a_is_trigger ? entity_a : entity_b;
+        var trigger_entity = a_is_trigger ? entity_a : entity_b;
         var dynamic_entity = a_is_trigger ? entity_b : entity_a;
 
+        var trigger = trigger_group[trigger_entity];
         var component = velocity_group[dynamic_entity];
-        component.Linear += new float3(0, 1000, 0);
+        component.Linear += trigger.trigger_effect;
         velocity_group[dynamic_entity] = component;
     }
 }

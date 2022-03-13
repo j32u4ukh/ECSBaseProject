@@ -913,6 +913,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f1434be68d4064bb0b49f97bbcf711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger_effect:
+    x: 0
+    y: 0
+    z: 1000
 --- !u!1 &2102047750
 GameObject:
   m_ObjectHideFlags: 0
