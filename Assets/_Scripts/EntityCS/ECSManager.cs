@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ECSManager : MonoBehaviour 
 {
+    public EntityTracker tracker;
+
     EntityManager manager;
     public GameObject player_prefab;
     public GameObject bullet_prefab;
@@ -28,6 +30,8 @@ public class ECSManager : MonoBehaviour
             speed = 1f,
             bullet_entity = bullet_entity
         });
+
+        tracker.setReceivedEntity(tracking_target: player);
     }
 
     private void OnDestroy()
