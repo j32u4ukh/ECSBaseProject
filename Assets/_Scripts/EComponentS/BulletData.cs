@@ -2,7 +2,7 @@
 using Unity.Mathematics;
 
 [GenerateAuthoringComponent]
-public struct BlockData : IComponentData
+public struct BulletData : IComponentData
 {
-    public float3 init_position;
+    public float speed;
 }

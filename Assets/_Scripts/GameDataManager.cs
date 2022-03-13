@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
+using Unity.Mathematics;
 
 public static class GameDataManager
 {
@@ -27,4 +28,6 @@ public static class GameDataManager
     public static float snow_altitude;
 
     public static bool changed_flag = false;
+
+    public static float3[] bullet_points;
 }
