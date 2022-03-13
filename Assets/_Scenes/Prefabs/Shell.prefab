@@ -175,6 +175,7 @@ MonoBehaviour:
     m_BevelRadius: 0.029870812
     m_MinimumAngle: 2.5000002
   m_CustomMesh: {fileID: 0}
+  m_ForceUnique: 0
   m_Material:
     m_SupportsTemplate: 1
     m_Template: {fileID: 0}
@@ -199,7 +200,7 @@ MonoBehaviour:
       m_Value: 0000010000000000000000000000000000000000000000000000000000000000
     m_RaisesCollisionEvents:
       m_Override: 0
-      m_Value: 0
+      m_Value: 1
     m_CustomTags:
       m_Override: 0
       m_Value: 0000000000000000
