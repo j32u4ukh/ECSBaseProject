@@ -33,6 +33,7 @@ public class DuckSpawner : MonoBehaviour
             float z = UnityEngine.Random.Range(-200, 200);
 
             manager.SetComponentData(instance, new Translation { Value = new float3(x, y, z) });
+            manager.SetComponentData(instance, new DeathData { is_dead = false });
         }
     }
 

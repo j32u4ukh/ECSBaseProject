@@ -31,7 +31,10 @@ public class FireSystem : JobComponentSystem
                             manager.SetComponentData(instance, new Translation { Value = position.Value + math.mul(rotation.Value, bullet_spawn_point) });
                             manager.SetComponentData(instance, new Rotation { Value = rotation.Value });
                             manager.SetComponentData(instance, new LifeTimeData { value = 2f });
-                            manager.SetComponentData(instance, new BulletData { speed = 50f });
+                            manager.SetComponentData(instance, new BulletData { 
+                                speed = 50f,
+                                collision_effect = new float3(0, 1000, 0)
+                            });
                         }
                     })
                     .Run();

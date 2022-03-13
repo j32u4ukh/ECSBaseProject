@@ -8,7 +8,7 @@ using Unity.Mathematics;
 using Unity.Transforms;
 
 [UpdateAfter(typeof(BulletMovingSystem))]
-public class DestorySystem : JobComponentSystem
+public class LifeTimeSystem : JobComponentSystem
 {
     protected override JobHandle OnUpdate(JobHandle inputDeps)
     {

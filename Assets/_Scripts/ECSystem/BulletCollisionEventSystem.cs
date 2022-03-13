@@ -24,7 +24,7 @@ public class BulletCollisionEventSystem : JobComponentSystem
         JobHandle handle = new CollisionEventJob
         {
             bullet_group = GetComponentDataFromEntity<BulletData>(),
-            velocity_group = GetComponentDataFromEntity<PhysicsVelocity>()
+            death_group = GetComponentDataFromEntity<DeathData>()
         }.Schedule(step_physics_world.Simulation, 
                    ref physics_world.PhysicsWorld, 
                    inputDeps);
@@ -38,7 +38,7 @@ public class BulletCollisionEventSystem : JobComponentSystem
 struct CollisionEventJob : ICollisionEventsJob
 {
     [ReadOnly] public ComponentDataFromEntity<BulletData> bullet_group;
-    public ComponentDataFromEntity<PhysicsVelocity> velocity_group;
+    public ComponentDataFromEntity<DeathData> death_group;
 
     public void Execute(CollisionEvent collisionEvent)
     {
@@ -48,20 +48,20 @@ struct CollisionEventJob : ICollisionEventsJob
         bool a_is_bullet = bullet_group.Exists(entity_a);
         bool b_is_bullet = bullet_group.Exists(entity_b);
 
-        bool a_is_target = velocity_group.Exists(entity_a);
-        bool b_is_target = velocity_group.Exists(entity_b);
+        bool a_is_target = death_group.Exists(entity_a);
+        bool b_is_target = death_group.Exists(entity_b);
 
         if(a_is_bullet && b_is_target)
         {
-            PhysicsVelocity target = velocity_group[entity_b];
-            target.Linear = new float3(0, 1000, 0);
-            velocity_group[entity_b] = target;
+            DeathData target = death_group[entity_b];
+            target.is_dead = true;
+            death_group[entity_b] = target;
         }
         else if (b_is_bullet && a_is_target)
         {
-            PhysicsVelocity target = velocity_group[entity_a];
-            target.Linear = new float3(0, 1000, 0);
-            velocity_group[entity_a] = target;
+            DeathData target = death_group[entity_a];
+            target.is_dead = true;
+            death_group[entity_a] = target;
         }
     }
 }

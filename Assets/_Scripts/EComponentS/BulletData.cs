@@ -5,4 +5,5 @@ using Unity.Mathematics;
 public struct BulletData : IComponentData
 {
     public float speed;
+    public float3 collision_effect;
 }
