@@ -16,7 +16,7 @@ public class CharacterControllerSystem : JobComponentSystem
         float linear = Input.GetAxis("Vertical");
 
         var handle = Entities.WithName("CharacterControllerSystem")
-                             .ForEach((ref PhysicsVelocity physics, ref Rotation rotation, ref CharacterData player) =>
+                             .ForEach((ref PhysicsVelocity physics, ref PhysicsMass mass, ref Rotation rotation, ref CharacterData player) =>
                              {
                                  if(linear == 0f)
                                  {
@@ -26,6 +26,9 @@ public class CharacterControllerSystem : JobComponentSystem
                                  {
                                      physics.Linear += linear * delta_time * player.speed * math.forward(rotation.Value);
                                  }
+
+                                 mass.InverseInertia[0] = 0;
+                                 mass.InverseInertia[2] = 0;
 
                                  //physics.Angular += new float3(0, angular * 0.1f, 0);
                                  rotation.Value = math.mul(math.normalize(rotation.Value), 

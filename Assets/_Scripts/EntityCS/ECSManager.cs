@@ -27,7 +27,7 @@ public class ECSManager : MonoBehaviour
         Entity player = manager.Instantiate(player_entity);
         manager.SetComponentData(player, new Translation { Value = new float3(0f, 2.55f, 0f) });
         manager.SetComponentData(player, new CharacterData { 
-            speed = 1f,
+            speed = 10f,
             bullet_entity = bullet_entity
         });
 
