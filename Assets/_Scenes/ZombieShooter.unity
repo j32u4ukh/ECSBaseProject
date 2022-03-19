@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 781614485}
   - component: {fileID: 781614487}
   - component: {fileID: 781614486}
+  - component: {fileID: 781614488}
   m_Layer: 0
   m_Name: TankTurret
   m_TagString: Untagged
@@ -326,6 +327,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781614484}
   m_Mesh: {fileID: -476746044771901990, guid: 7cc975e0c28204485806b02e4457986e, type: 3}
+--- !u!114 &781614488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781614484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c73ab5719cfcdd4a849d81b94bdeb2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 10
+  direction: {x: 0, y: 0, z: 1}
 --- !u!1 &782505200
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,8 +684,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.27981535, y: 0.46622378, z: -0.15831427, w: 0.8241817}
-  m_LocalPosition: {x: -21.554192, y: 19.287441, z: -10.856525}
+  m_LocalRotation: {x: 0.054360356, y: 0.6862615, z: -0.051569737, w: 0.72348523}
+  m_LocalPosition: {x: -10.716797, y: 5.5776367, z: 4.272583}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
