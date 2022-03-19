@@ -28,6 +28,8 @@ public class RaycastHitJob : MonoBehaviour
     BuildPhysicsWorld physics_world;
     StepPhysicsWorld step_world;
 
+    EntityManager manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class RaycastHitJob : MonoBehaviour
         physics_world = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<BuildPhysicsWorld>();
         step_world = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<StepPhysicsWorld>();
 
+        manager = World.DefaultGameObjectInjectionWorld.EntityManager;
     }
 
     // Update is called once per frame
@@ -68,6 +71,12 @@ public class RaycastHitJob : MonoBehaviour
         }.Schedule();
 
         handle.Complete();
+
+        foreach (Unity.Physics.RaycastHit hit in raycast_hits.ToArray())
+        {
+            var entity = physics_world.PhysicsWorld.Bodies[hit.RigidBodyIndex].Entity;
+            manager.DestroyEntity(entity);
+        }
     }
 
     private void OnDrawGizmos()

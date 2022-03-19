@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 781614487}
   - component: {fileID: 781614486}
   - component: {fileID: 781614488}
+  - component: {fileID: 781614489}
   m_Layer: 0
   m_Name: TankTurret
   m_TagString: Untagged
@@ -341,6 +342,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 10
   direction: {x: 0, y: 0, z: 1}
+  collect_all_hits: 0
+  draw_surface_normals: 1
+--- !u!114 &781614489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781614484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e40ab8b38e990489b99b3063a529d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &782505200
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,6 +998,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456748712407318239, guid: dc7e45f5f8f700449b1e5ee0e7fda889,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889,
         type: 3}
